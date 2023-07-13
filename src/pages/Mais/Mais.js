@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, ScrollView, StatusBar, SafeAreaView, Platform, Modal} from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, StatusBar, SafeAreaView, Platform} from 'react-native';
 
 const statusBarHeight = StatusBar.currentHeight;
 
@@ -6,14 +6,7 @@ export default function Mais() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Text>q bosta </Text>
-
-
-
-
-
-
-
+        <Text>Section Mais</Text>
       </ScrollView>
     </SafeAreaView>
   );

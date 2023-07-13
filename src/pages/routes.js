@@ -1,7 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
-import { StyleSheet } from 'react-native';
-import React from 'react';
 import BotaoMais from '../components/BotaoMais';
 
 // Importe as telas aqui
@@ -16,15 +14,13 @@ const Tab = createBottomTabNavigator();
 function Routes() {
   return (
     <Tab.Navigator
-      initialRouteName="Home" //Só para facilitar quando for programar alguma tela
-
       screenOptions={{
         tabBarActiveTintColor: '#007CE0',
         tabBarInactiveTintColor: '#007CE0',
         tabBarShowLabel: false,
         tabBarStyle: {
           position: 'absolute',
-          backgroundColor: 'white', // Define a cor de fundo com transparência
+          backgroundColor: 'white',
           borderTopWidth: 0,
           bottom: 0,
           left: 0,
