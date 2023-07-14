@@ -5,6 +5,8 @@ import {
   Montserrat_500Medium,
   Montserrat_700Bold, 
 } from '@expo-google-fonts/montserrat';
+import { useNavigation } from '@react-navigation/native';
+
 import CardEventosSem from '../../components/CardEventosSem';
 
 
@@ -13,6 +15,8 @@ const { width } = Dimensions.get('window');
 
 
 export default function Eventos() {
+  const navigation = useNavigation();
+
   let [fontsLoaded] = useFonts({
       Montserrat_400Regular, 
       Montserrat_500Medium,
@@ -31,7 +35,7 @@ export default function Eventos() {
             <Image style={styles.Logo} source={require('../../img/Logo.png')} />
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
             <Image style={styles.Perfil} source={require('../../img/Perfil.png')} />
           </TouchableOpacity>
         </View>
@@ -39,7 +43,7 @@ export default function Eventos() {
               <Text style={styles.H3}>Eventos de Hoje</Text>
 
         {/*Card - Eventos de Hoje*/}
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('InfoEventos')}>
                 <View style={styles.Card}>
                   <View style={styles.InnerCard}>
                       <ImageBackground style={styles.ImageCard} source={require('../../img/EventoSPInvisivel.png')}>
@@ -78,7 +82,6 @@ export default function Eventos() {
               <Text style={styles.H3}>Eventos da Semana</Text>
 
 
-
         {/*1. Card - Eventos da semana*/}
         <TouchableOpacity>
           <CardEventosSem
@@ -108,6 +111,7 @@ export default function Eventos() {
           />
         </TouchableOpacity>
 
+
         {/*4. Card - Eventos da semana*/}
         <TouchableOpacity>
           <CardEventosSem
@@ -117,7 +121,6 @@ export default function Eventos() {
           />
         </TouchableOpacity>
 
-        
       </ScrollView>
     </SafeAreaView>
   );

@@ -5,6 +5,8 @@ import {
   Montserrat_500Medium,
   Montserrat_700Bold, 
 } from '@expo-google-fonts/montserrat';
+import { useNavigation } from '@react-navigation/native';
+
 import CardONG from '../../components/CardONG';
 
 
@@ -12,6 +14,7 @@ import CardONG from '../../components/CardONG';
   const { width } = Dimensions.get('window');
 
 export default function Doacoes() {
+  const navigation = useNavigation();
   let [fontsLoaded] = useFonts({
       Montserrat_400Regular, 
       Montserrat_500Medium,
@@ -30,7 +33,7 @@ export default function Doacoes() {
             <Image style={styles.Logo} source={require('../../img/Logo.png')} />
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
             <Image style={styles.Perfil} source={require('../../img/Perfil.png')} />
           </TouchableOpacity>
         </View>

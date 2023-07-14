@@ -6,12 +6,16 @@ import {
   Montserrat_700Bold, 
 } from '@expo-google-fonts/montserrat';
 import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+
 import Conversa from '../../components/Conversa';
 
 
 const statusBarHeight = StatusBar.currentHeight;
 
 export default function Mensagens() {
+  const navigation = useNavigation();
+
   let [fontsLoaded] = useFonts({
       Montserrat_400Regular, 
       Montserrat_500Medium,
@@ -30,7 +34,7 @@ export default function Mensagens() {
                 <Image style={styles.Logo} source={require('../../img/Logo.png')} />
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
                 <Image style={styles.Perfil} source={require('../../img/Perfil.png')} />
             </TouchableOpacity>
         </View>

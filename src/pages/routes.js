@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 import BotaoMais from '../components/BotaoMais';
 
-// Importe as telas aqui
+{/*Páginas importadas*/}
 import Home from './Home/Home';
 import Doacoes from './Doacoes/Doacoes';
 import Mais from './Mais/Mais';
@@ -11,6 +11,7 @@ import Eventos from './Eventos/Eventos';
 
 const Tab = createBottomTabNavigator();
 
+{/*Tabbar*/}
 function Routes() {
   return (
     <Tab.Navigator
