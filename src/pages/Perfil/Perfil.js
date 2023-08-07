@@ -1,11 +1,6 @@
 import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView, Platform, StatusBar, Dimensions, TouchableOpacity, Modal,
 } from 'react-native';
-import {
-  useFonts,
-  Montserrat_400Regular,
-  Montserrat_500Medium,
-  Montserrat_700Bold,
-} from '@expo-google-fonts/montserrat';
+import { useFonts, Montserrat_400Regular, Montserrat_500Medium, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 import { useState } from 'react';
 import { Feather } from '@expo/vector-icons';
 
@@ -79,9 +74,9 @@ export default function Perfil({ navigation }) {
             </TouchableOpacity>
           </View>
 
-          {/*Campo - Notificações*/}
+          {/*Campo - Premiações*/}
           <View style={styles.Campos}>
-            <TouchableOpacity style={styles.Componentes}>
+            <TouchableOpacity style={styles.Componentes} onPress={() => navigation.navigate('Premiacoes')}>
               <View style={styles.CamposOpcoes}>
                 <Feather style={styles.IconsOpcoes} name="award" size={25} color={'#252525'}/>
                 <Text style={styles.OpcoesText}>Premiações</Text>

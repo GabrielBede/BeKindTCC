@@ -5,20 +5,21 @@ import { useState } from 'react';
 
 const CardEventosSem = ({ongPerfilSource, nome, data }) => {
   return (
-
-<View style={styles.ContEvenSemana}>
-            <View style={styles.EvenImg}>
+        <View style={styles.ContEvenSemana}>
+          <View style={styles.EvenImg}>
               <Image style={styles.Icon} source={ongPerfilSource} />
-              <View>
-                <Text style={styles.PBold}>{nome}</Text>
-                <Text style={styles.PBlack}>{data}</Text>
+              
+                <View>
+                  <Text style={styles.PBold}>{nome}</Text>
+                  <Text style={styles.PBlack}>{data}</Text>
+                </View>
+
+              <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                <TouchableOpacity>
+                  <Text style={styles.PBoldBlue}>Ver</Text>
+                </TouchableOpacity>
               </View>
-                  <View style={{ flex: 1, alignItems: 'flex-end' }}>
-              <TouchableOpacity>
-                <Text style={styles.PBoldBlue}>Ver</Text>
-              </TouchableOpacity>
-            </View>
-            </View>
+          </View>
         </View>
   );
 };

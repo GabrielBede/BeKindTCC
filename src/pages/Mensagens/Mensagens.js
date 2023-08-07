@@ -1,15 +1,9 @@
 import { StyleSheet, Text, View, Image, ScrollView, StatusBar, SafeAreaView, Platform, TouchableOpacity, TextInput} from 'react-native';
-import {
-  useFonts, 
-  Montserrat_400Regular, 
-  Montserrat_500Medium,
-  Montserrat_700Bold, 
-} from '@expo-google-fonts/montserrat';
+import { useFonts,  Montserrat_400Regular,  Montserrat_500Medium, Montserrat_700Bold} from '@expo-google-fonts/montserrat';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 import Conversa from '../../components/Conversa';
-
 
 const statusBarHeight = StatusBar.currentHeight;
 
@@ -39,9 +33,7 @@ export default function Mensagens() {
             </TouchableOpacity>
         </View>
 
-
             <Text style={styles.H3}>Chat</Text>
-
 
           {/*Input - Pesquisar*/}
           <View style={styles.InputArea}>
@@ -100,7 +92,6 @@ export default function Mensagens() {
             <Text style={styles.PBold}>Voluntários</Text>
           </View>
 
-
           {/*1. Conversa Voluntário*/}
           <TouchableOpacity>
             <Conversa
@@ -118,7 +109,6 @@ export default function Mensagens() {
                 msg="Olá"
             />
           </TouchableOpacity>
-          
           
           {/*3. Conversa Voluntário*/}
           <TouchableOpacity>

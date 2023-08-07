@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 
 const CardONG = ({ imgCardSource, ongPerfilSource, nome, meta, descricao }) => {
-  const [isBlue, setIsBlue] = useState(false);
+  const [Azul, setAzul] = useState(false);
   return (
         <View style={styles.Card}>
           <View style={styles.InnerCard}>
@@ -28,9 +28,9 @@ const CardONG = ({ imgCardSource, ongPerfilSource, nome, meta, descricao }) => {
 
                       {/*Favoritar ONG*/}
                       <View style={styles.Favorite}>
-                        <TouchableOpacity onPress={() => setIsBlue(!isBlue)}>
+                        <TouchableOpacity onPress={() => setAzul(!Azul)}>
                           <Image style={styles.Estrela} 
-                            source={isBlue ? require('../img/EstrelaBlue.png') : 
+                            source={Azul ? require('../img/EstrelaBlue.png') : 
                             require('../img/Estrela.png')}/>
                         </TouchableOpacity>
                       </View>
@@ -56,8 +56,6 @@ const CardONG = ({ imgCardSource, ongPerfilSource, nome, meta, descricao }) => {
 };
 
 const styles = StyleSheet.create({
-
-
   Header:{
     width:'100%',
     flexDirection: 'row',
@@ -89,8 +87,6 @@ const styles = StyleSheet.create({
     fontSize:14,
     fontFamily: 'Montserrat_400Regular',
   },
-
- 
 
   SetaWhite:{
     width: 40, 
@@ -167,7 +163,6 @@ const styles = StyleSheet.create({
     marginLeft: 10 
   },
   
-
   ONG:{
     backgroundColor: '#fff',
     width: 60,
@@ -191,7 +186,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignSelf:'center',
     marginRight:16,
-
   },
 
   Favorite:{

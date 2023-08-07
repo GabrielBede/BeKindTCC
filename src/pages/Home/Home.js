@@ -1,19 +1,13 @@
 import { StyleSheet, Text, View, Image, ScrollView, SafeAreaView, Platform, StatusBar, Dimensions,TouchableOpacity, ImageBackground, FlatList} from 'react-native';
-import {
-  useFonts, 
-  Montserrat_400Regular, 
-  Montserrat_500Medium,
-  Montserrat_700Bold, 
-} from '@expo-google-fonts/montserrat';
+import { useFonts,  Montserrat_400Regular,  Montserrat_500Medium, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 import CardONG from '../../components/CardONG';
-
+import Post from '../../components/Post';
 
 const statusBarHeight = StatusBar.currentHeight;
 const { width } = Dimensions.get('window');
-
 
 export default function Home() {
   const navigation = useNavigation();
@@ -24,6 +18,11 @@ export default function Home() {
       Montserrat_700Bold, 
   });
   const [isLiked, setIsLiked] = useState(false);
+
+  const handleDonateNow = () => {
+    // Aqui, vamos navegar para a tela de doação (DonateScreen)
+    navigation.navigate('InfoONG');
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -113,44 +112,14 @@ export default function Home() {
         </TouchableOpacity>
 
 
-        {/*Usuário do Blog*/}
-        <TouchableOpacity>
-          <View style={styles.PerfilBlog}>
-            <Image style={styles.PostPerfil} source={require('../../img/PerfilSPInvisivel.png')} />
-            <Text style={styles.PostUser}>SP Invisível</Text>
-          </View>
-        </TouchableOpacity>
+        {/*Post - SP Invisivel*/}
+        <Post
+          ongPostSource={require('../../img/PostSPInvisivel.png')}
+          ongPerfilSource={require('../../img/PerfilSPInvisivel.png')}
+          nome="SP Invisível"
+          descricao="Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis."
+        />
 
-
-        {/*Imagem do Post*/}
-        <View style={styles.Post}>
-          <View style={styles.InnerPost}>
-            <ImageBackground style={styles.ImagePost} source={require('../../img/PostSPInvisivel.png')}>
-              <View>
-                <View style={styles.Header}>
-                  
-                  {/*Curtir Post*/}
-                  <View style={styles.Curtir}>
-                    <TouchableOpacity onPress={() => setIsLiked(!isLiked)}>
-                      <Image style={styles.Like} 
-                        source={isLiked ? require('../../img/CurtirBlue.png') : 
-                        require('../../img/Curtir.png')}
-                      />
-                    </TouchableOpacity>
-                  </View>
-                
-                </View>
-              </View>
-            </ImageBackground>
-          </View>
-        </View>
-
-
-            {/*Texto do Post*/}
-            <View style={styles.PostTexto}>
-                <Text style={styles.PBlack}><Text style={styles.PBoldBlack}>SP Invisível:</Text> Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis.</Text>
-            </View>
-            
       </ScrollView>
     </SafeAreaView>
   );
@@ -186,7 +155,6 @@ const styles = StyleSheet.create({
     marginRight:25,  
   },
 
-
   H1:{
     marginTop:-40,
     marginLeft: 30,
@@ -197,18 +165,6 @@ const styles = StyleSheet.create({
   H3:{
     fontSize:20, 
     fontFamily:'Montserrat_700Bold',
-  },
-
-  PBoldBlack: {
-    fontFamily:'Montserrat_700Bold',
-    fontSize: 14,
-    color: '#000',
-  },
-
-  PBlack:{
-    color: '#000',
-    fontSize:14,
-    fontFamily: 'Montserrat_400Regular',
   },
 
   Text:{
@@ -235,80 +191,36 @@ const styles = StyleSheet.create({
     justifyContent:'space-between'
   },
 
+  CategoriasView:{
+    marginRight:30, 
+    alignItems:'center',
+    marginTop: 10,
+    marginLeft:30, 
+    marginBottom:15, 
+    flexDirection:'row', 
+    justifyContent:'space-between'
+  },
+
+    BlogView:{
+    marginRight:30, 
+    alignItems:'center',
+    marginTop: 15,
+    marginLeft:30,
+    marginBottom:15,
+    flexDirection:'row', 
+    justifyContent:'space-between'
+  },
+
   Seta:{
     width:37, 
     resizeMode:'contain',
   },
-
-  PerfilBlog:{
-    flexDirection:'row', 
-    marginLeft:30, 
-    marginTop: -70
-  },
-
-  Post:{
-    marginTop:-60,
-    display:'flex',
-    alignSelf: 'center',
-    backgroundColor: 'black',
-    width: '85%',
-    height:362,
-    borderRadius: 25,
-    resizeMode:'contain',
-  },
-
 
   IconCategorias:{
      width: 25, 
      resizeMode: 'contain', 
      alignSelf: 'center', 
      marginTop: '-15%' 
-  },
-
-  InnerPost:{
-    borderRadius: 25, 
-    overflow: 'hidden', 
-    width:'100%', 
-    height:'100%',
-  },
-
-  ImagePost:{
-    width: '100%', 
-    height:'100%', 
-  },
-  
-  PostPerfil:{
-    alignSelf: 'center', 
-    width:33, 
-    resizeMode:'contain',
-  },
-
-  PostUser:{
-    alignSelf:'center', 
-    fontFamily:'Montserrat_700Bold', 
-    fontSize:14, 
-    marginLeft:8, 
-  },
-  
-  Like:{
-    alignSelf: 'center', 
-    width: 20, 
-    resizeMode: 'contain'
-  },
-
-  PostTexto:{
-    margin:30, 
-    marginTop:15, 
-  },
-
-  Curtir:{
-    backgroundColor: '#fff',
-    width: 50,
-    height: 50,
-    marginTop:362,
-    marginLeft:'82%',
-    borderRadius: 15,
-    display:'flex',
   },
 
   BBlue:{

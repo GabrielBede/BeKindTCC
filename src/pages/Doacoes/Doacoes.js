@@ -1,14 +1,8 @@
 import { StyleSheet, Text, View, Image, ScrollView, StatusBar, SafeAreaView, Platform, Dimensions,TouchableOpacity, FlatList} from 'react-native';
-import {
-  useFonts, 
-  Montserrat_400Regular, 
-  Montserrat_500Medium,
-  Montserrat_700Bold, 
-} from '@expo-google-fonts/montserrat';
+import { useFonts,  Montserrat_400Regular,  Montserrat_500Medium, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 import { useNavigation } from '@react-navigation/native';
 
 import CardONG from '../../components/CardONG';
-
 
   const statusBarHeight = StatusBar.currentHeight;
   const { width } = Dimensions.get('window');
@@ -67,7 +61,7 @@ export default function Doacoes() {
             />
          </View>
 
-        {/*Cards*/}
+          {/*Cards*/}
           {/*Card Anjos da Rua*/}
         <CardONG
           imgCardSource={require('../../img/BgONGAnjosdaRua.png')}
@@ -86,7 +80,7 @@ export default function Doacoes() {
           descricao="O frio mais intenso é o da indiferença."
         />
 
-          {/*Card Anjos da Rua*/}
+          {/*Card Olhar de Bia*/}
         <CardONG
           imgCardSource={require('../../img/BgONGOlhardeBia.png')}
           ongPerfilSource={require('../../img/PerfilOlhardeBia.png')}
@@ -95,7 +89,7 @@ export default function Doacoes() {
           descricao="Educação para eliminar a miséria."
         />
 
-          {/*Card Anjos da Rua*/}
+          {/*Card ONG Amamos*/}
         <CardONG
           imgCardSource={require('../../img/BgONGAmamos.png')}
           ongPerfilSource={require('../../img/PerfilONGAmamos.png')}
@@ -103,7 +97,7 @@ export default function Doacoes() {
           meta="Meta: R$350"
           descricao="Acolhimento para crianças."
         />
-
+        
       </ScrollView>
     </SafeAreaView>
   );

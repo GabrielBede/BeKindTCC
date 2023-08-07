@@ -1,14 +1,8 @@
 import { TouchableOpacity, Image, Text, View, StyleSheet, TextInput, Alert} from 'react-native';
-import {
-  useFonts, 
-  Montserrat_400Regular, 
-  Montserrat_500Medium,
-  Montserrat_700Bold, 
-} from '@expo-google-fonts/montserrat';
+import { useFonts,  Montserrat_400Regular,  Montserrat_500Medium, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 import { Feather } from '@expo/vector-icons';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-
 
 export default function Cadastro ({navigation}) {
   let [fontsLoaded] = useFonts({
@@ -18,44 +12,15 @@ export default function Cadastro ({navigation}) {
   });
 
   var [Olho, setOlho] = useState(true);
-  var [User, setUser] = useState('');
-  var [Senha, setSenha] = useState('');
-  var Tentativas = 0;
 
+  const [voluntarioPressionado, setVoluntarioPressionado] = useState(false);
+  const [ongPressionado, setOngPressionado] = useState(false);
+  const [tipoUsuario, setTipoUsuario] = useState('voluntario');
+  const [placeholder, setPlaceholder] = useState('CPF');
 
-  function Cadastro() {
-    if (User != 'Gabriel' || Senha != '123') {
-      alert('Usuário ou senha incorretos. Tente novamente.');
-      Tentativas++;
-
-      if (Tentativas == 3) {
-        Tentativas = Tentativas * 0;
-        alert('Muitas tentativas. Acesso bloqueado.');
-      }
-    } else {
-      alert('Olá ' + User + '! Seja bem-vindo.');
-    }
-  }
-
-function handleEnviarPress() {
-  Alert.alert(
-    "Cadastro",
-    "Seu cadastro foi realizado com sucesso",
-    [
-      { text: "OK", onPress: () => navigation.navigate('Login') }
-    ],
-    { 
-      titleStyle: styles.alertTitle,
-      messageStyle: styles.alertMessage,
-      alertContainerStyle: styles.alertContainer,
-    }
-  );
+function Cadastro (){
+  alert ('Cadastro realizado com sucesso!');
 }
-
-const [voluntarioPressionado, setVoluntarioPressionado] = useState(false);
-const [ongPressionado, setOngPressionado] = useState(false);
-const [tipoUsuario, setTipoUsuario] = useState('voluntario');
-const [placeholder, setPlaceholder] = useState('CPF');
 
 function handleVoluntarioPress() {
   setVoluntarioPressionado(!voluntarioPressionado);
@@ -70,7 +35,6 @@ function handleOngPress() {
   setTipoUsuario('ong');
   setPlaceholder('CPF');
 }
-
 
 return (
   <View style={{backgroundColor:'white', width:'100%', height:'100%',}}>
@@ -153,7 +117,7 @@ return (
 
         <View style={styles.InputAreaSenha}>
           <Feather style={styles.IconsOpcoes} name='lock' size={23} color={"#7E7E7E"} />
-          <TextInput style={styles.Input} placeholder='Senha' placeholderTextColor='#7E7E7E' value={Senha} onChangeText={ (text) => setSenha(text)} secureTextEntry={Olho}/>
+          <TextInput style={styles.Input} placeholder='Senha' placeholderTextColor='#7E7E7E' value={''} onChangeText={ (text) => setSenha(text)} secureTextEntry={Olho}/>
 
           <TouchableOpacity style={styles.Icon} onPress={() => setOlho(!Olho)}> 
             <Feather style={{marginLeft: -20, }} name={Olho ? 'eye-off' : 'eye'} color='#7E7E7E' size={24}/>
@@ -161,8 +125,8 @@ return (
         </View>
 
 
-        <TouchableOpacity onPress = {handleEnviarPress}>
-          <Text style = {styles.Botao} value={Tentativas}> Cadastrar</Text>
+        <TouchableOpacity onPress = {Cadastro}>
+          <Text style = {styles.Botao} value={''}> Cadastrar</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate ('Login')}> 
@@ -175,6 +139,10 @@ return (
   );
 }
   
+  
+
+  
+
 const styles = StyleSheet.create({
 
   container: {
@@ -190,6 +158,8 @@ const styles = StyleSheet.create({
     marginTop:40,
   },
 
+  
+
   Text: {
     fontFamily: 'Montserrat_700Bold', 
     fontSize: 30,
@@ -197,6 +167,7 @@ const styles = StyleSheet.create({
     marginTop:40,
     
   },
+
 
   InputArea: {
     flexDirection: 'row',
@@ -224,18 +195,20 @@ const styles = StyleSheet.create({
     borderColor:'#7E7E7E',
     borderWidth:1,
     alignItems:'center',
+
 },
 
-  IconsOpcoes:{
+IconsOpcoes:{
     marginRight:10,
-},
+  },
 
   Input: {
     width: '85%',
     color: 'black',
     fontFamily: 'Montserrat_400Regular', 
     outline: 'none'
-},
+
+  },
 
   Botao:{
     backgroundColor: "black",
@@ -273,7 +246,6 @@ const styles = StyleSheet.create({
     borderRight:'none',
     borderRightColor:'black',
   },
-
   Selecao2:{
     display:'flex',
     backgroundColor: "white",
@@ -300,4 +272,5 @@ const styles = StyleSheet.create({
     marginTop: 15,
     textAlign:'right',
   },
+
 });

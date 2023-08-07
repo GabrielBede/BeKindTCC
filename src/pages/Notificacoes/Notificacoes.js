@@ -20,6 +20,7 @@ export default function Perfil() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.ScrollView}>
+        
         {/* Header do aplicativo */}
         <View style={styles.Header}>
           <TouchableOpacity>

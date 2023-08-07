@@ -1,18 +1,11 @@
 import { StyleSheet, Text, View, Image, ScrollView, StatusBar, SafeAreaView, Platform, Dimensions,TouchableOpacity, ImageBackground} from 'react-native';
-import {
-  useFonts, 
-  Montserrat_400Regular, 
-  Montserrat_500Medium,
-  Montserrat_700Bold, 
-} from '@expo-google-fonts/montserrat';
+import { useFonts,  Montserrat_400Regular,  Montserrat_500Medium, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 import { useNavigation } from '@react-navigation/native';
 
 import CardEventosSem from '../../components/CardEventosSem';
 
-
 const statusBarHeight = StatusBar.currentHeight;
 const { width } = Dimensions.get('window');
-
 
 export default function Eventos() {
   const navigation = useNavigation();
@@ -80,7 +73,6 @@ export default function Eventos() {
         </TouchableOpacity>
 
               <Text style={styles.H3}>Eventos da Semana</Text>
-
 
         {/*1. Card - Eventos da semana*/}
         <TouchableOpacity>
@@ -233,7 +225,6 @@ const styles = StyleSheet.create({
     marginTop:70,
   },
 
-
   PBold: {
     fontFamily:'Montserrat_700Bold',
     fontSize: 14,
@@ -252,6 +243,4 @@ const styles = StyleSheet.create({
   ScrollView: {
     marginBottom: 60,
   },
-
-
 });

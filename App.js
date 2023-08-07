@@ -7,11 +7,15 @@ import { NavigationContainer } from '@react-navigation/native';
 
 {/*Páginas importadas*/}
 import Routes from './src/pages/routes';
-import Cadastro from './src/pages/Cadastro.Login/Cadastro';
-import Login from './src/pages/Cadastro.Login/Login';
+import Cadastro from './src/pages/Cadastro/Cadastro';
+import Login from './src/pages/Login/Login';
 import Perfil from './src/pages/Perfil/Perfil';
 import Notificacoes from './src/pages/Notificacoes/Notificacoes';
 import InfoEventos from './src/pages/InfoEventos/InfoEventos';
+import InfoONG from './src/pages/InfoONG/InfoONG';
+import Blog from './src/pages/Blog/Blog';
+import Premiacoes from './src/pages/Premiacoes/Premiacoes';
+import DoarDinheiro from './src/pages/DoarDinheiro/DoarDinheiro';
 
 const Stack = createStackNavigator();
 
@@ -25,7 +29,8 @@ export default function App() {
   {/*Páginas de navegação*/}
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+
+      <Stack.Navigator initialRouteName="Cadastro">
         <Stack.Screen
           name="Cadastro"
           component={Cadastro}
@@ -49,7 +54,6 @@ export default function App() {
           component={Routes}
           options={{ headerShown: false }}
         />
-
         <Stack.Screen
           name="Eventos"
           component={Routes}
@@ -71,7 +75,11 @@ export default function App() {
         <Stack.Screen
           name="Notificacoes"
           component={Notificacoes}
-          options={{ headerShown: false }}
+          options={{ 
+            title: '',
+            headerTransparent: true,
+            headerTintColor: '#000', 
+            }}
         />
 
         <Stack.Screen
@@ -99,7 +107,7 @@ export default function App() {
             },
           }}
         />
-
+        
         <Stack.Screen
           name="InfoEventos"
           component={InfoEventos}
@@ -109,6 +117,43 @@ export default function App() {
             headerTintColor: '#fff',
           }}
         />
+        
+        <Stack.Screen
+          name="InfoONG"
+          component={InfoONG}
+          options={{
+            title: '',
+            headerTransparent: true,
+            headerTintColor: '#fff',
+          }}
+        />
+
+        <Stack.Screen
+          name="Blog"
+          component={Blog}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="Premiacoes"
+          component={Premiacoes}
+          options={{
+            title: '',
+            headerTransparent: true,
+            headerTintColor: '#000', 
+            }}
+        />
+
+        <Stack.Screen
+          name="DoarDinheiro"
+          component={DoarDinheiro}
+          options={{
+            title: '',
+            headerTransparent: true,
+            headerTintColor: '#000', 
+            }}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
